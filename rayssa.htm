@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Rayssa 🌷</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            overflow: hidden; 
+        }
+
+        .cartao {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 450px;
+            width: 90%;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #d63384;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background-color: #d63384;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #b02a6c;
+            transform: scale(1.05); 
+        }
+
+        .flor {
+            position: absolute;
+            font-size: 24px;
+            top: -50px; 
+            animation: cair linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes cair {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cartao">
+        <h1>Feliz Dia das Mulheres, Rayssa! 🌷</h1>
+        <p>Esta é uma pequena homenagem para celebrar a mulher incrível, forte e especial que você é. Que o seu dia seja tão iluminado quanto a alegria que você traz para quem está ao seu redor!  saiu um pouco tarde mas não poderia te deixar sem essa surpresa ja que a primeira surpresa não deu certo mas fiz essa aqui para você</p>
+        <button id="botaoSurpresa">Clique aqui para uma surpresa</button>
+    </div>
+
+    <script>
+        const botao = document.getElementById('botaoSurpresa');
+
+        botao.addEventListener('click', function() {
+            botao.innerText = "Você merece o mundo! ✨";
+            
+            for (let i = 0; i < 40; i++) {
+                setTimeout(criarFlor, i * 100); 
+            }
+        });
+
+        function criarFlor() {
+            const flor = document.createElement('div');
+            flor.classList.add('flor');
+            flor.innerText = '🌸';
+            flor.style.left = Math.random() * 100 + 'vw';
+            flor.style.animationDuration = Math.random() * 3 + 3 + 's';
+            
+            document.body.appendChild(flor);
+
+            setTimeout(() => {
+                flor.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
